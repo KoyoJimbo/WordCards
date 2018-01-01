@@ -8,6 +8,20 @@ import sys
 _df_num = 1
 save_data_name = 'your_data.txt'
 
+def input_df(target_df):
+    df = [
+            "words.csv",
+            "personality.csv"
+         ]
+    return df[target_df]
+
+def input_except_words(taget_df):
+    if taget_df == 0 :
+        except_words = [1,5,7,10,11,15,24] #for word.csv
+    elif taget_df == 1:
+        except_words = [] #for personality.csv
+    return except_words
+
 # input df
 def select():
     print("words--0")
@@ -25,13 +39,6 @@ def parrot_no_df(q):
     assert 0 <= q <= _df_num, Fore.RED + \
         "x shulde be between 0 and " + str(_df_num)
 
-def input_df(target_df):
-    df = [
-         "words.csv",
-         "personality.csv"
-         ]
-    return df[target_df]
-
 def gein_csv(taget_df):
     word_df = pd.read_csv(input_df(taget_df), header=0)
     w_e = word_df['english']
@@ -42,13 +49,6 @@ def add_del(except_words, remain_words, word):
     except_words.append(word)
     remain_words.remove(word)
     return except_words, remain_words
-
-def input_except_words(taget_df):
-    if taget_df == 0 :
-        except_words = [1,5,7,10,11,15,24] #for word.csv
-    elif taget_df == 1:
-        except_words = [] #for personality.csv
-    return except_words
 
 def join_your_exception2original(except_words, personal_exception):
     except_words.extend(personal_exception)
@@ -120,7 +120,7 @@ def ui(except_words, remain_words, w_j, w_e, personal_exception):
             if ans == "u":
                 except_words, remain_words =\
                     add_del(except_words, remain_words, num)
-            elif ans == "unko":
+            elif ans == "except":
                 if(num>=1):
                     personal_exception.append(num-1)
                     except_words, remain_words =\
