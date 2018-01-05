@@ -18,7 +18,6 @@ class OriginalException:
         except_words = self.f7(except_words)
         return except_words
 
-    # join_your_exception2original にて使用しました
     def f7(self, seq):
         seen = set()
         seen_add = seen.add

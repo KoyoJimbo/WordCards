@@ -2,6 +2,15 @@ import pandas as pd
 import csv as csv
 import os
 class FileManeger:
+    def __init__(self):
+         self.dfs = [
+                "law.csv",
+                "personality.csv"
+                    ]
+
+    def get_dfs(self):
+        return self.dfs
+
     def join_path(self, file_name):
         file_path = os.path.join('./files/',file_name)
         return file_path
@@ -42,11 +51,7 @@ class FileManeger:
 
     # relate .csv
     def df_manager(self, target_df):
-        df = [
-                "law.csv",
-                "personality.csv"
-             ]
-        df_path = self.join_path(df[target_df])
+        df_path = self.join_path(self.dfs[target_df])
         return df_path 
 
     def gein_csv(self, target_df):
