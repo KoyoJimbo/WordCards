@@ -6,9 +6,8 @@ colorama.init(autoreset=True)
 import sys
 
 class Module:
-    _df_num = 1
     def __init__(self):
-        _df_num = 1
+        self._df_num = 1
 
 #   select
     def select(self):

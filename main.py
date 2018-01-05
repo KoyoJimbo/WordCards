@@ -15,7 +15,7 @@ class Main:
         personal_exception = f_manager.read_personal_exception(save_data_name)
         # 練習に使うデータフレームを読み込みます
         w_e, w_j = f_manager.gein_csv(taget_df)
-        # 練習に使わない単語のデータを取得します
+        # 練習に使わない単語を取得します
         except_words = org_except.except_words_folder(taget_df)
         # 個人データを練習に使ない単語のデータに適用させます
         except_words =\
