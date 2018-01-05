@@ -1,14 +1,16 @@
 import ui 
 import file_manager
 import original_exception
+import sele
 
 class Main:
     def main(self):
         f_manager = file_manager.FileManeger()
         module = ui.Module()
         org_except = original_exception.OriginalException()
+        select = sele.Select()
         # 練習に使うデータを対話的に選びます
-        taget_df = module.select()
+        taget_df = select.select()
         # 個人データのファイル名を取得します
         save_data_name = f_manager.name_case_for_txtfile(taget_df)
         # 個人データを読み込みます
