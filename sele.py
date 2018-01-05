@@ -19,5 +19,5 @@ class Select:
         return df
 
     def parrot_no_df(self, q):
-        assert 0 <= q <= self._df_num,\
+        assert 0 <= q <= (len(self.dfs)-1),\
             Fore.RED + "x shulde be between 0 and " + str(len(self.dfs)-1)

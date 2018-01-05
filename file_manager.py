@@ -2,14 +2,8 @@ import pandas as pd
 import csv as csv
 import os
 class FileManeger:
-    def __init__(self):
-         self.dfs = [
-                "law.csv",
-                "personality.csv"
-                    ]
-
-    def get_dfs(self):
-        return self.dfs
+    def __init__(self, dfs):
+        self.dfs = dfs
 
     def join_path(self, file_name):
         file_path = os.path.join('./files/',file_name)
@@ -17,11 +11,9 @@ class FileManeger:
         
     # relate .txt
     def name_case_for_txtfile(self, target_df):
-        your_data = [
-                "your_law.txt",
-                "your_personality.txt"
-             ]
-        return your_data[target_df]
+        your_files =\
+            list(map(lambda x: 'your_' + x.replace('.csv','.txt'), self.dfs))
+        return your_files[target_df]
 
     def read_personal_exception(self, save_data_name):
         save_data_name = self.join_path(save_data_name)
