@@ -26,6 +26,9 @@ class Module:
                         except_words, remain_words =\
                             self.add_del(except_words, remain_words, num)
                         break
+                    elif ans == "new game" and per_ans == 0:
+                        print('あなたが除いた単語を復活させます')
+                        return []
                     elif ans == w_e[num]:
                         self.right(except_words, remain_words, num ,w_e)
                         break
@@ -37,12 +40,12 @@ class Module:
                 if len(remain_words) == 0:
                     return personal_exception
 
-    def add_del(self, except_words, remain_words, word):
-        if word not in except_words:
-            except_words.append(word)
-        if word in except_words:
-            remain_words.remove(word)
-        return except_words, remain_words
+    def add_del(self, add_list, del_list, word):
+        if word not in add_list:
+            add_list.append(word)
+        if word in del_list:
+            del_list.remove(word)
+        return add_list, del_list 
 
     def right(self, except_words, remain_words, num ,w_e):
         print(w_e[num])
