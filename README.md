@@ -11,7 +11,7 @@
 </p>
 <h3>コマンド</h3>
 <p>
-<a>e%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;一つ前の単語を以降表示されなくします</a><br>
-<a>se%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;%nbsp;          スキップします</a><br>
-<a>new%nbsp;game%nbsp;%nbsp;%nbsp;%nbsp;eコマンドで除いた単語を復活させ終了します</a><br>
+<a>e　　　　一つ前の単語を以降表示されなくします</a><br>
+<a>s　　　　スキップします</a><br>
+<a>new game コマンドで除いた単語を復活させ終了します</a><br>
 </p>
