@@ -37,7 +37,7 @@ class FileManeger:
             for num in personal_exception:
                 f.write(str(num)+"\n")
         except Exception as e:
-            print(e)
+            print(e,'error occurred')
         finally:
             f.close()
 

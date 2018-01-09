@@ -1,5 +1,5 @@
 ID,japanese,english
-0,鋼鉄                  ,alloy                  
+0,鋼鉄                  ,alloy
 1,天秤                  ,balance
 2,触媒                  ,catalyst
 3,真空度                ,degree of vacuum
@@ -9,64 +9,33 @@ ID,japanese,english
 7,湿度                  ,humidity
 8,絶縁体                ,insulator
 9, 石灰石               ,limestone
-10,発電所               ,                     
-11,貴金属               ,
-12,兵士                 ,
-13,石油製               ,
-14,品質管               ,
-15,放射能               ,
-16,感度                 ,
-17,換気                 ,
-18,波長                 ,
-19,気温                 ,
-20,触媒                 ,
-21,排出ガス             ,
-22,交流                 ,
-23,除草剤               ,
-24,電子顕微鏡           ,
-25,集積回路             ,
-26,液化ガス             ,
-27,単色                 ,  
-28,強化プラスチック     ,        
-29,速度                 
-20,洗剤                 ,
-31,欠陥車               ,
-32,フロントガス         ,
-33,下水                 ,
-34,立方メートル         ,
-35,地層                 ,
-36,合成繊維             ,
-37,酵母                 ,
-38,環境基準             ,
-39,実験                 ,      
-
-power plant
-noble metal
-solder
-petroleum product
-quality control
-radioactivity
-sensitivity
-ventilation
-wavelength
-temperature
-crude oil
-exhaust gas
-alternating current
-herbicide
-electron microscope
-integrated circuit
-liquefied petroleum gas
-monochrome
-reinforced plastics
-velocity
-detergent
-defective car
-windshield
-sewage
-cubic meter
-stratum
-synthetic fiber
-yeast
-environmental standards
-experiment              
+10,発電所               ,power plant
+11,貴金属               ,noble metal
+12,兵士                 ,solder
+13,石油製               ,petroleum product
+14,品質管               ,quality control
+15,放射能               ,radioactivity
+16,感度                 ,sensitivity
+17,換気                 ,ventilation
+18,波長                 ,wavelength
+19,気温                 ,temperature
+20,触媒                 ,crude oil
+21,排出ガス             ,exhaust gas
+22,交流                 ,alternating current
+23,除草剤               ,herbicide
+24,電子顕微鏡           ,electron microscope
+25,集積回路             ,integrated circuit
+26,液化ガス             ,liquefied petroleum gas
+27,単色                 ,monochrome
+28,強化プラスチック     ,reinforced plastics
+29,速度                 ,velocity
+30,洗剤                 ,detergent
+31,欠陥車               ,defective car
+32,フロントガラス       ,windshield
+33,下水                 ,sewage
+34,立方メートル         ,cubic meter
+35,地層                 ,stratum
+36,合成繊維             ,synthetic fiber
+37,酵母                 ,yeast
+38,環境基準             ,environmental standards
+39,実験                 ,experiment

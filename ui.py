@@ -3,12 +3,12 @@ from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 class Module:
-    def __init__():
+    def __init__(self):
         pass
 
 #   ui
     def ui(self, except_words, remain_words, w_j, w_e, personal_exception):
-        for time in range(512):
+        for time in range(1024):
             num = time % len(w_e)
             if num == 0:
                 print("未習得単語数:" + str(len(remain_words)))
@@ -48,7 +48,7 @@ class Module:
         print(w_e[num])
         except_words, remain_words =\
             self.add_del(except_words, remain_words, num)
- 
+
     def wrong(self, w_e, num):
         print(w_e[num])
         for i in range(100):
