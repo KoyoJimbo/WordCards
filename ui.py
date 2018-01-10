@@ -27,7 +27,7 @@ class Module:
                             self.add_del(except_words, remain_words, num)
                         break
                     elif ans == "new game" and per_ans == 0:
-                        print('あなたが除いた単語を復活させます')
+                        print(Fore.GREEN + '\nあなたが除いた単語を復活させます')
                         return []
                     elif ans == w_e[num]:
                         self.right(except_words, remain_words, num ,w_e)
