@@ -23,7 +23,7 @@ class Main:
         select = sele.Select(self.dfs)
 
         # 練習に使うデータを対話的に選びます
-        taget_df, random_key = select.select(None)
+        taget_df = select.select()
 
         # 個人データのファイル名を取得します
         save_data_name = f_manager.name_case_for_txtfile(taget_df)
@@ -40,7 +40,7 @@ class Main:
 
         # 練習が始まります
         personal_exception =\
-            module.ui(except_words, remain_words, w_j, w_e, personal_exception, random_key)
+            module.ui(except_words, remain_words, w_j, w_e, personal_exception)
 
         # 個人データをファイルに書き込みます
         f_manager.save_personal_exception(personal_exception, save_data_name)

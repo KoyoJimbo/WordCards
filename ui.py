@@ -7,8 +7,8 @@ class Module:
     def __init__(self):
         pass
 
-#   ui
-    def ui(self, except_words, remain_words, w_j, w_e, personal_exception, randam_key):
+    def ui(self, except_words, remain_words, w_j, w_e, personal_exception, randam_key=None):
+        previous_num = None
         for time in range(1024):
             num = self.rand_or_not(time,w_e,randam_key)
             if num == 0 and randam_key == None:
@@ -21,8 +21,11 @@ class Module:
                 for per_ans in range(2):
                     print(str(time) + ": " + str(w_j[num]))
                     ans = str(input("答えて："))
-                    if ans == "e" and per_ans == 0 and num > 0:
+                    if ans == "e" and per_ans == 0 and previous_num != None:
                         personal_exception.append(previous_num)
+                    elif ans == "r":
+                        print("\n")
+                        return self.ui(except_words, remain_words, w_j, w_e, personal_exception, "randamize")
                     elif ans == "s":
                         except_words, remain_words =\
                             self.add_del(except_words, remain_words, num)
