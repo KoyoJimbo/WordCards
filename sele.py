@@ -7,24 +7,28 @@ class Select:
     def __init__(self, dfs):
         self.dfs = dfs
 
-    def select(self):
-        print(Fore.GREEN + str(len(self.dfs)) + '--instruct how to use')
+    def select(self,random_key):
+        print(' ' + Fore.GREEN + str(len(self.dfs)) + '--instruct how to use')
+        print(' ' + Fore.GREEN + str(len(self.dfs)+1) + '--randamize')
         for df_num in range(len(self.dfs)):
-            print(str(df_num) + '--' + str(self.dfs[df_num].split('.')[0]))
+            print(' ' + str(df_num) + '--' + str(self.dfs[df_num].split('.')[0]))
         try:
-            df = int(input("which?: "))
+            df = int(input(' ' + "which? :"))
         except ValueError:
             print(Fore.RED + "[Error]:数値を入力して下さい")
             sys.exit()
         self.parrot_no_df(df)
         if df == len(self.dfs):
             self.instructions()
-            df = self.select()
-        return df
+            df,random_key = self.select(None)
+        if df == len(self.dfs) + 1:
+            df,random_key = self.select(None)
+            random_key = 'randmize'
+        return df,random_key
 
     def parrot_no_df(self, q):
-        assert 0 <= q <= (len(self.dfs)),\
-            Fore.RED + "x shulde be between 0 and " + str(len(self.dfs))
+        assert 0 <= q <= (len(self.dfs)+1),\
+            Fore.RED + "x shulde be between 0 and " + str(len(self.dfs)+1)
 
     def instructions(self):
         print("\n")
