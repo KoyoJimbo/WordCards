@@ -13,13 +13,13 @@ class Module:
             num = self.rand_or_not(time,w_e,randam_key)
             if num == 0 and randam_key == None:
                 print("未習得単語数: " + str(len(remain_words)))
-            if num in except_words:
+            if num in except_words or (previous_num == num and randam_key != None and len(remain_words) != 1):
                 if len(remain_words) == 0:
                     return personal_exception
                 continue
             else:
                 for per_ans in range(2):
-                    print(str(time) + ": " + str(w_j[num]))
+                    print(str(num) + ": " + str(w_j[num]))
                     ans = str(input("答えて："))
                     if ans == "e" and per_ans == 0 and previous_num != None:
                         personal_exception.append(previous_num)
