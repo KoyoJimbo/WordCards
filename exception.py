@@ -12,7 +12,7 @@ class OriginalException:
     def except_words_folder(self, target_df):
         if target_df == 0 : # for law.csv
             except_words = [1,5,7,10,11,15,24]
-        elif target_df == 2:
+        elif target_df == 2: # for science.csv
             remain_words = [1,3,7,8,9,11,16,17,18,22,24,25,31,36,37]
             except_words = [x for x in range(40) if x+1 not in remain_words]
         else:

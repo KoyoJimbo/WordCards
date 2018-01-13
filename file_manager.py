@@ -8,11 +8,11 @@ class FileManeger:
     def join_path(self, file_name):
         file_path = os.path.join('./files/',file_name)
         return file_path
-        
+
     # relate .txt
-    def name_case_for_txtfile(self, target_df):
+    def name_case_for_txtfile(self, target_df, head_name):
         your_files =\
-            list(map(lambda x: 'your_' + x.replace('.csv','.txt'), self.dfs))
+            list(map(lambda x: head_name + x.replace('.csv','.txt'), self.dfs))
         return your_files[target_df]
 
     def read_personal_exception(self, save_data_name):
@@ -44,7 +44,7 @@ class FileManeger:
     # relate .csv
     def df_manager(self, target_df):
         df_path = self.join_path(self.dfs[target_df])
-        return df_path 
+        return df_path
 
     def gein_csv(self, target_df):
         word_df = pd.read_csv(self.df_manager(target_df), header=0)
