@@ -8,9 +8,12 @@ class Select:
         self.dfs = dfs
 
     def select(self):
-        print(' ' + Fore.GREEN + str(len(self.dfs)) + '--instructs')
+        digit_dfs = len(list(map(int, str(len(self.dfs)))))
+        dfs_num_for_print = str(len(self.dfs)).ljust(digit_dfs+2, '-')
+        print(' ' + Fore.GREEN + dfs_num_for_print + 'instructs')
         for df_num in range(len(self.dfs)):
-            print(' ' + str(df_num) + '--' + str(self.dfs[df_num].split('.')[0]))
+            dfs_num_for_print = str(df_num).ljust(digit_dfs+2, '-')
+            print(' ' + dfs_num_for_print + str(self.dfs[df_num].split('.')[0]))
         try:
             df = int(input(' ' + "which? :"))
         except ValueError:

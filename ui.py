@@ -20,17 +20,15 @@ class Ui(ui_modules.UIModule):
             if num == 0 and random_key == None or ans == "s":
                 print("残り: " + str(len(remain_words))+ "/" + str(len(w_e)))
             if num in except_words or (previous_num == num and random_key != None and len(remain_words) != 1):
-                if len(remain_words) == 0:
-                    return personal_exception, your_weak
+                if len(remain_words) == 0:return personal_exception, your_weak
                 continue
             else:
                 print("\n")
-                if random_key != None:
-                    print(Fore.GREEN + "random mode")
-                if weak_key   != None:
-                    print(Fore.GREEN + "weak mode")
+                if random_key != None:print(Fore.GREEN + "random mode")
+                if weak_key   != None:print(Fore.GREEN + "weak mode")
                 for per_ans in range(2):
-                    print(str(num) + ": " + str(w_j[num]))
+                    if random_key == None:print(str(num) + ": " + str(w_j[num]))
+                    else:print(" " + "  " + str(w_j[num]))
                     ans = str(input("答えて："))
                     if ans == "random mode" and random_key == None:
                             if weak_key == None:
@@ -76,5 +74,4 @@ class Ui(ui_modules.UIModule):
                         super().wrong(w_e, num)
                         break
                 previous_num = num
-                if len(remain_words) == 0:
-                    return personal_exception, your_weak
+                if len(remain_words) == 0:return personal_exception, your_weak

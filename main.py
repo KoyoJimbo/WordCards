@@ -55,6 +55,7 @@ if __name__ == '__main__':
             ,'unit9.csv'
             ,'unit10.csv'
             ,'original_words.csv'
+            ,'linear_algebra.csv'
           ]
     main = Main(dfs)
     main.main()

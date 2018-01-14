@@ -23,13 +23,13 @@ class UIModule:
         return add_list, del_list
 
     def right(self, except_words, remain_words, num ,w_e):
-        print(Fore.BLUE + w_e[num])
+        print(Fore.BLUE + str(w_e[num]))
         except_words, remain_words =\
             self.add_del(except_words, remain_words, num)
         print("残り: " + str(len(remain_words))+ "/" + str(len(w_e)))
 
     def wrong(self, w_e, num):
-        print(Fore.BLUE + w_e[num])
+        print(Fore.BLUE + str(w_e[num]))
         for i in range(100):
             trash = str(input("練習して："))
             if(trash == w_e[num]):
