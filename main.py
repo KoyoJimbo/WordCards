@@ -20,7 +20,7 @@ class Main:
 
     def main(self):
         f_manager = file_manager.FileManeger(self.dfs)
-        module = ui.Module()
+        module = ui.Ui()
         org_except = exception.OriginalException()
         select = sele.Select(self.dfs)
 
