@@ -4,19 +4,8 @@ import exception
 import sele
 
 class Main:
-    def __init__(self):
-        self.dfs = [
-                     'law.csv'
-                    ,'personality.csv'
-                    ,'science.csv'
-                    ,'math.csv'
-                    ,'unit5.csv'
-                    ,'unit6.csv'
-                    ,'unit8.csv'
-                    ,'unit9.csv'
-                    ,'unit10.csv'
-                    ,'original_words.csv',
-                   ]
+    def __init__(self, dfs):
+        self.dfs = dfs
 
     def main(self):
         f_manager = file_manager.FileManeger(self.dfs)
@@ -53,5 +42,17 @@ class Main:
         f_manager.save_personal_exception(your_weak, your_f_name_weak)
 
 if __name__ == '__main__':
-    main = Main()
+    dfs = [
+             'law.csv'
+            ,'personality.csv'
+            ,'science.csv'
+            ,'math.csv'
+            ,'unit5.csv'
+            ,'unit6.csv'
+            ,'unit8.csv'
+            ,'unit9.csv'
+            ,'unit10.csv'
+            ,'original_words.csv'
+          ]
+    main = Main(dfs)
     main.main()
