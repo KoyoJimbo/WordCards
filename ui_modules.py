@@ -24,9 +24,9 @@ class UIModule:
 
     def right(self, except_words, remain_words, num ,w_e):
         print(Fore.BLUE + w_e[num])
-        print("残り: " + str(len(remain_words))+ "/" + str(len(w_e)))
         except_words, remain_words =\
             self.add_del(except_words, remain_words, num)
+        print("残り: " + str(len(remain_words))+ "/" + str(len(w_e)))
 
     def wrong(self, w_e, num):
         print(Fore.BLUE + w_e[num])

@@ -17,12 +17,14 @@ class Main:
         taget_df = select.select()
 
         # 個人データのファイル名を取得します
-        save_data_name = f_manager.name_case_for_txtfile(taget_df,'except_')
+        save_data_name =\
+            f_manager.name_case_for_txtfile(taget_df,'except_')
         your_f_name_weak =\
             f_manager.name_case_for_txtfile(taget_df,'your_weak_')
 
         # 個人データを読み込みます
-        personal_exception = f_manager.read_personal_exception(save_data_name)
+        personal_exception =\
+            f_manager.read_personal_exception(save_data_name)
         your_weak =\
             f_manager.read_personal_exception(your_f_name_weak)
 

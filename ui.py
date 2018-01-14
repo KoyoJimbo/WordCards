@@ -12,6 +12,7 @@ class Ui(ui_modules.UIModule):
 
     def ui(self, except_words, remain_words, w_j, w_e, personal_exception,your_weak, random_key=None, weak_key=None, second_weak_call=None):
         previous_num = None
+        ans = None
         except_words, remain_words =\
             self.sec_ui.apply_weak(except_words, remain_words, w_e, your_weak, random_key, weak_key, second_weak_call)
         for time in range(1024):
@@ -64,7 +65,7 @@ class Ui(ui_modules.UIModule):
                         if previous_num not in your_weak:
                             your_weak.append(previous_num)
                         break
-                    elif ans == "skip":
+                    elif ans == "s":
                         except_words, remain_words =\
                             super().add_del(except_words, remain_words, num)
                         break
