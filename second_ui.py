@@ -6,13 +6,13 @@ class SecondUI(ui_modules.UIModule):
 
     def apply_weak(self, except_words, remain_words,
                    w_e, your_weak, random_key=None,
-                   weak_key=None, second_weak_call=None):
-        if weak_key != None and second_weak_call == None:
-                for per_weak in range(len(w_e)):
-                    if per_weak not in your_weak:
-                        except_words, remain_words =\
-                            super().add_del(except_words, remain_words,
-                                            per_weak)
+                   weak_key=None):
+        if weak_key != None:
+            for per_weak in range(len(w_e)):
+                if per_weak not in your_weak:
+                    except_words, remain_words =\
+                        super().add_del(except_words, remain_words,
+                                        per_weak)
         return except_words, remain_words
 
     def branch(self,ans,per_ans,num,previous_num,
@@ -32,3 +32,10 @@ class SecondUI(ui_modules.UIModule):
             super().right(except_words, remain_words, num ,w_e)
         else:
             super().wrong(w_e, num)
+
+    def talk(self,talknum):
+        if talknum == 1:
+            talk = '\nあなたが除いた単語を全て復活させます'
+        elif talknum == 2:
+            talk = '\nあなたの弱点としてセーブされていた単語を全て消去します'
+        print(Fore.GREEN + talk)
