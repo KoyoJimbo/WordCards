@@ -4,10 +4,31 @@ class SecondUI(ui_modules.UIModule):
     def __init__(self):
         pass
 
-    def apply_weak(self, except_words, remain_words, w_e, your_weak, random_key=None, weak_key=None, second_weak_call=None):
+    def apply_weak(self, except_words, remain_words,
+                   w_e, your_weak, random_key=None,
+                   weak_key=None, second_weak_call=None):
         if weak_key != None and second_weak_call == None:
                 for per_weak in range(len(w_e)):
                     if per_weak not in your_weak:
                         except_words, remain_words =\
-                            super().add_del(except_words, remain_words,  per_weak)
+                            super().add_del(except_words, remain_words,
+                                            per_weak)
         return except_words, remain_words
+
+    def branch(self,ans,per_ans,num,previous_num,
+               except_words,remain_words,w_e,w_j):
+        if ans == "e" and per_ans == 0 and previous_num != None:
+            if previous_num not in personal_exception:
+                personal_exception.append(previous_num)
+            except_words, remain_words =\
+                super().add_del(except_words, remain_words, num)
+        elif ans == "wp":
+            if previous_num not in your_weak:
+                your_weak.append(previous_num)
+        elif ans == "s":
+            except_words, remain_words =\
+                super().add_del(except_words, remain_words, num)
+        elif ans == w_e[num]:
+            super().right(except_words, remain_words, num ,w_e)
+        else:
+            super().wrong(w_e, num)

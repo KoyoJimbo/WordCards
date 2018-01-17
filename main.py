@@ -2,6 +2,7 @@ import ui
 import file_manager
 import exception
 import sele
+import time
 
 class Main:
     def __init__(self, dfs):
@@ -35,9 +36,15 @@ class Main:
         except_words, remain_words =\
             org_except.main(taget_df, personal_exception, w_e)
 
+        start_time = time.time()
         # 練習が始まります
         personal_exception, your_weak =\
             module.ui(except_words, remain_words, w_j, w_e, personal_exception,your_weak)
+        took_time = int(time.time() - start_time)
+        print("elapsed_time: {0}:{0}:{0}"
+            .format(int(took_time / 60 / 60))
+            .format(int(took_time / 60))
+            .format(int(took_time % 60)))
 
         # 個人データをファイルに書き込みます
         f_manager.save_personal_exception(personal_exception, save_data_name)
