@@ -1,0 +1,21 @@
+solution of 'OSError: [Errno 98] Address already in use'
+
+
+lsof -i | grep 5000
+
+sudo kill -9 <processID>
+
+
+ex)
+
+(*._.) lsof -i :5000
+COMMAND    PID USER   FD   TYPE  DEVICE SIZE/OFF NODE NAME
+python   10766 jmbo    4u  IPv4 1129585      0t0  TCP localhost:5000 (LISTEN)
+electron 10907 jmbo   85u  IPv4 1130624      0t0  TCP localhost:59070->localhost:5000 (ESTABLISHED)
+
+
+
+(*._.) sudo kill -g 10766
+
+sampleappディレクトリ上での実行方法
+(*._.) ../node_modules/.bin/electron . 
