@@ -10,13 +10,12 @@ class UIModule:
     def rand_or_not(self,time,w_e,randam_key,previous_num,remain_words):
         if randam_key == None:
             num = time % len(w_e)
-            while num not in remain_words:
-                num = time % len(w_e)
-            return num
+            if num == previous_num and len(remain_words):
+                self.rand_or_not(time,w_e,randam_key,previous_num,remain_words)
+            else:
+                return num
         else:
             num = random.randint(0, len(w_e)-1)
-            while num not in remain_words and num != previous_num:
-                num = random.randint(0, len(w_e)-1)
             return num
 
     def add_del(self, add_list, del_list, word):

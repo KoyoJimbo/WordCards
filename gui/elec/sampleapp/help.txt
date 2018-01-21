@@ -15,7 +15,7 @@ electron 10907 jmbo   85u  IPv4 1130624      0t0  TCP localhost:59070->localhost
 
 
 
-(*._.) sudo kill -g 10766
+(*._.) sudo kill -9 10766
 
 sampleappディレクトリ上での実行方法
 (*._.) ../node_modules/.bin/electron . 

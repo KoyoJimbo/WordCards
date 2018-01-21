@@ -1,5 +1,5 @@
 {
-  "name": "sample-app",
+  "name": "sampleapp",
   "version": "0.1.0",
   "main": "main.js",
   "dependencies": {

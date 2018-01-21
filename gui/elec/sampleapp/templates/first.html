@@ -1,5 +1,23 @@
 {% extends "layout.html" %}
 {% block content %}
-<h3>Hello</h3>
-こんにちは。{{ name }}さん。
+<p class="lead">
+    {% if name %}
+        {% if name==answer %}
+            <h3>{{ message }}</h3><br>
+            正解です
+            {{ answer }}
+        {% else %}
+            <h3>{{ message }}</h3><br>
+            不正解です
+            {{ answer }}
+        {% endif %}
+    {% else %}
+       <h3>{{ message }}</h3>
+    {% endif %}
+</p>
+<form action="/post" method="post" class="form-inline">
+     <!--<label for="name">答え</label>-->
+    <input type="text" class="form-control" id="name" name="name" placeholder="Answer">
+    <button type="submit" class="btn btn-default">submit</button>
+</form>
 {% endblock %}
