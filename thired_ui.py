@@ -1,10 +1,12 @@
 import ui_modules
+import second_ui
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 
 class ThiredUI(ui_modules.UIModule):
     def __init__(self):
+        self.sec_ui = second_ui.SecondUI()
         pass
 
     def change_arg(self, ans, random_key, weak_key):
@@ -42,5 +44,8 @@ class ThiredUI(ui_modules.UIModule):
         elif ans == "rm wp" and per_ans == 0:
             self.sec_ui.talk(2)
             return personal_exception, []
+        elif ans == "exit" and per_ans == 0:
+            self.sec_ui.talk(3)
+            return personal_exception, your_weak
         else:
             return None, None

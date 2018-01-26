@@ -1,0 +1,12 @@
+ID,japanese,english
+0,char,英数字1文字
+1,unsigned char,英数字1文字
+2,short int,整数
+3,unsigned short int,整数
+4,int,整数
+5,unsigned int,整数
+6,long int,長整数
+7,unsigned long int,長整数
+8,float,単精度浮動小数点数
+9,double,倍精度浮動小数点数
+10,long double,拡張精度浮動小数点数

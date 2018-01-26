@@ -1,11 +1,12 @@
 import ui_modules
-import second_ui
 import thired_ui
+import second_ui
 import random
 class Ui(ui_modules.UIModule):
     def __init__(self):
         self.sec_ui = second_ui.SecondUI()
         self.thr_ui = thired_ui.ThiredUI()
+
     def ui(self, except_words, remain_words, w_j, w_e, personal_exception,
            your_weak, random_key=None, weak_key=None,sec_call=None):
         previous_num = ans = None
@@ -16,8 +17,10 @@ class Ui(ui_modules.UIModule):
                                        your_weak,random_key, weak_key)
         for time in range(1024):
             if len(remain_words) == 0:return personal_exception,your_weak
-            num = super().rand_or_not(time,w_e,random_key,previous_num,
-                                      remain_words)
+            num = super().rand_or_not(time,w_e,previous_num,
+                                      remain_words,random_key)
+            if num not in remain_words:
+                continue
             self.thr_ui.print_remain_num(num,random_key,ans,remain_words,w_e)
             self.thr_ui.show_mode(random_key,weak_key)
             ans = self.thr_ui.show_q(num,random_key,w_j)
@@ -35,10 +38,12 @@ class Ui(ui_modules.UIModule):
                         tmp_personal_exception, tmp_your_weak =\
                             self.thr_ui.rmer(ans,per_ans,personal_exception,
                                              your_weak)
-                        if tmp_personal_exception is tmp_your_weak is not None:
+                        if tmp_personal_exception or tmp_your_weak is not None:
                            return tmp_personal_exception,tmp_your_weak
                         else:continue
                 # break 系の枝
-                if self.sec_ui.branch(ans,per_ans,num,previous_num,except_words,
-                                      remain_words,w_e,w_j) is not None:break
+                if self.sec_ui.branch(ans,per_ans,num,previous_num,
+                                      except_words,remain_words,w_e,
+                                      w_j,random_key,personal_exception) is not None:
+                    break
             previous_num = num

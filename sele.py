@@ -4,30 +4,30 @@ colorama.init(autoreset=True)
 import sys
 
 class Select:
-    def __init__(self, dfs):
-        self.dfs = dfs
+    def __init__(self):
+        pass
 
-    def select(self):
-        digit_dfs = len(list(map(int, str(len(self.dfs)))))
-        dfs_num_for_print = str(len(self.dfs)).ljust(digit_dfs+2, '-')
+    def select(self, dfs):
+        digit_dfs = len(list(map(int, str(len(dfs)))))
+        dfs_num_for_print = str(len(dfs)).ljust(digit_dfs+2,'_')
         print(' ' + Fore.GREEN + dfs_num_for_print + 'instructs')
-        for df_num in range(len(self.dfs)):
+        for df_num in range(len(dfs)):
             dfs_num_for_print = str(df_num).ljust(digit_dfs+2, '-')
-            print(' ' + dfs_num_for_print + str(self.dfs[df_num].split('.')[0]))
+            print(' ' + dfs_num_for_print + str(dfs[df_num].split('.')[0]))
         try:
             df = int(input(' ' + "which? :"))
         except ValueError:
             print(Fore.RED + "[Error]:数値を入力して下さい")
             sys.exit()
-        self.parrot_no_df(df)
-        if df == len(self.dfs):
+        self.parrot_no_df(df,dfs)
+        if df == len(dfs):
             self.instructions()
             df = self.select()
         return df
 
-    def parrot_no_df(self, q):
-        assert 0 <= q <= (len(self.dfs)),\
-            Fore.RED + "x shulde be between 0 and " + str(len(self.dfs))
+    def parrot_no_df(self, q ,dfs):
+        assert 0 <= q <= (len(dfs)),\
+            Fore.RED + "x shulde be between 0 and " + str(len(dfs))
 
     def instructions(self):
         print("\n")

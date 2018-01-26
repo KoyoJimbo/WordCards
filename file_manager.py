@@ -2,11 +2,13 @@ import pandas as pd
 import csv as csv
 import os
 class FileManeger:
-    def __init__(self, dfs):
+    def __init__(self, dfs, dirs, taget_dir):
         self.dfs = dfs
+        self.dirs = dirs
+        self.taget_dir = taget_dir
 
     def join_path(self, file_name):
-        file_path = os.path.join('./files/',file_name)
+        file_path = os.path.join('./files/',self.dirs[self.taget_dir],file_name)
         return file_path
 
     # relate .txt
@@ -32,6 +34,7 @@ class FileManeger:
 
     def save_personal_exception(self, personal_exception,save_data_name):
         save_data_name = self.join_path(save_data_name)
+        print(save_data_name)
         try:
             f = open(save_data_name, 'w')
             for num in personal_exception:
