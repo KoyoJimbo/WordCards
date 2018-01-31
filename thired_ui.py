@@ -26,11 +26,12 @@ class ThiredUI(ui_modules.UIModule):
             print("残り: " + str(len(remain_words)) + "/" + str(len(w_e)))
         print("\n")
 
-    def show_q(self,num,random_key,w_j):
+    def show_q(self,num,random_key,w_j, q):
         if random_key == None:print(str(num) + ": " + str(w_j[num]))
         else:print(" " + "  " + str(w_j[num]))
         ans = str(input("答えて："))
-        return ans
+        #return ans
+        q.put(ans)
 
     def show_mode(self,random_key,weak_key):
         pass

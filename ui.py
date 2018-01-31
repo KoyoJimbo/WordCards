@@ -2,6 +2,9 @@ import ui_modules
 import thired_ui
 import second_ui
 import random
+import threading
+import queue
+
 class Ui(ui_modules.UIModule):
     def __init__(self):
         self.sec_ui = second_ui.SecondUI()
@@ -22,8 +25,16 @@ class Ui(ui_modules.UIModule):
             if num not in remain_words or num == previous_num:
                 continue
             self.thr_ui.print_remain_num(num,random_key,ans,remain_words,w_e)
-            self.thr_ui.show_mode(random_key,weak_key)
-            ans = self.thr_ui.show_q(num,random_key,w_j)
+            #self.thr_ui.show_mode(random_key,weak_key)
+           ## 並列処理
+            q = queue.Queue()
+            th1 = threading.Thread(target = self.thr_ui.show_q, args=(num,random_key,w_j,q))
+            th2 = threading.Thread(target = super().speaker, args=(previous_num,w_e))
+            th1.start()
+            th2.start()
+            th1.join()
+            ans = q.get()
+           ##
             for per_ans in range(2):
                 if len(ans) >= 1 and ans[0] == ":" and per_ans == 0:
                     # 再帰あり retun の枝
@@ -42,8 +53,10 @@ class Ui(ui_modules.UIModule):
                            return tmp_personal_exception,tmp_your_weak
                         else:continue
                 # breakの枝
-                if self.sec_ui.branch(ans,per_ans,num,previous_num,
-                                      except_words,remain_words,w_e,
-                                      w_j,random_key,personal_exception,your_weak) is not None:
+                breaker =\
+                    self.sec_ui.branch(ans,per_ans,num,previous_num,
+                                       except_words,remain_words,w_e,
+                                       w_j,random_key,personal_exception,your_weak)
+                if breaker is not None:
                     break
             previous_num = num

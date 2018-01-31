@@ -2,6 +2,7 @@ import ui_modules
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
+import threading
 
 class SecondUI(ui_modules.UIModule):
     def __init__(self):

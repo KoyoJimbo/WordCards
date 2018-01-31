@@ -6,10 +6,10 @@ import time
 import os
 
 class Main:
-    def __init__(self, dfs,dirs,gold_dirs):
+    def __init__(self, dfs,dirs,gold_dfs):
         self.dfs = dfs
         self.dirs = dirs
-        self.gold_dirs = gold_dirs
+        self.gold_dfs = gold_dfs
 
     def main(self):
         module = ui.Ui()
@@ -19,7 +19,7 @@ class Main:
         # 練習に使うデータを対話的に選びます
         taget_dir = select.select(self.dirs)
         if taget_dir == 1:
-            self.dfs = self.gold_dirs
+            self.dfs = self.gold_dfs
         taget_df = select.select(self.dfs)
             
 
@@ -78,10 +78,11 @@ if __name__ == '__main__':
             ,'linear_algebra.csv'
             ,'type.csv'
           ]
-    gold_dirs =\
+    gold_dfs =\
         [
-            'part_1.csv'
+            'part_1.csv',
+            'part_2.csv'
         ]
 
-    main = Main(dfs, dirs, gold_dirs)
+    main = Main(dfs, dirs, gold_dfs)
     main.main()

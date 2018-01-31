@@ -28,9 +28,6 @@ class UIModule:
 
     def right(self, except_words, remain_words, num ,w_e,random_key):
         print(Fore.BLUE + str(w_e[num]))
-        args = ['espeak', '-s', '125', '-v', 'en+f5']
-        args.append(str(w_e[num]))
-        #res = subprocess.check_call(args)
         except_words, remain_words =\
             self.add_del(except_words, remain_words, num)
         if random_key!=None:
@@ -39,10 +36,13 @@ class UIModule:
 
     def wrong(self, w_e, num):
         print(Fore.BLUE + str(w_e[num]))
-        args = ['espeak', '-s', '125', '-v', 'en+f5']
-        args.append(str(w_e[num]))
-        #res = subprocess.check_call(args)
         for i in range(100):
             trash = str(input("練習して："))
             if(trash == w_e[num]):
                 break
+
+    def speaker(self, previous_num, w_e):
+        if previous_num is not None:
+            args = ['espeak', '-s', '125', '-v', 'en+f5']
+            args.append(str(w_e[previous_num]))
+            res = subprocess.check_call(args)
