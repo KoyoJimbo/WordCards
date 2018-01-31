@@ -11,15 +11,15 @@ class Ui(ui_modules.UIModule):
            your_weak, random_key=None, weak_key=None,sec_call=None):
         previous_num = ans = None
         if sec_call == None:
-            print('second')
             except_words, remain_words =\
                 self.sec_ui.apply_weak(except_words, remain_words,w_e,
                                        your_weak,random_key, weak_key)
         for time in range(1024):
-            if len(remain_words) == 0:return personal_exception,your_weak
+            if len(remain_words) == 0:
+                return personal_exception,your_weak
             num = super().rand_or_not(time,w_e,previous_num,
                                       remain_words,random_key)
-            if num not in remain_words:
+            if num not in remain_words or num == previous_num:
                 continue
             self.thr_ui.print_remain_num(num,random_key,ans,remain_words,w_e)
             self.thr_ui.show_mode(random_key,weak_key)
@@ -41,9 +41,9 @@ class Ui(ui_modules.UIModule):
                         if tmp_personal_exception or tmp_your_weak is not None:
                            return tmp_personal_exception,tmp_your_weak
                         else:continue
-                # break 系の枝
+                # breakの枝
                 if self.sec_ui.branch(ans,per_ans,num,previous_num,
                                       except_words,remain_words,w_e,
-                                      w_j,random_key,personal_exception) is not None:
+                                      w_j,random_key,personal_exception,your_weak) is not None:
                     break
             previous_num = num

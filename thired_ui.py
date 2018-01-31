@@ -33,8 +33,9 @@ class ThiredUI(ui_modules.UIModule):
         return ans
 
     def show_mode(self,random_key,weak_key):
-        if random_key != None:print(Fore.GREEN + "random mode")
-        if weak_key   != None:print(Fore.GREEN + "weak mode")
+        pass
+        #if random_key != None:print(Fore.GREEN + "random mode")
+        #if weak_key   != None:print(Fore.GREEN + "weak mode")
 
     def rmer(self,ans,per_ans,personal_exception,your_weak):
         ans = ans[1:]

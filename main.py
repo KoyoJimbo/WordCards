@@ -6,9 +6,10 @@ import time
 import os
 
 class Main:
-    def __init__(self, dfs,dirs):
+    def __init__(self, dfs,dirs,gold_dirs):
         self.dfs = dfs
         self.dirs = dirs
+        self.gold_dirs = gold_dirs
 
     def main(self):
         module = ui.Ui()
@@ -17,8 +18,10 @@ class Main:
 
         # 練習に使うデータを対話的に選びます
         taget_dir = select.select(self.dirs)
-        if taget_dir == 0:
-            taget_df = select.select(self.dfs)
+        if taget_dir == 1:
+            self.dfs = self.gold_dirs
+        taget_df = select.select(self.dfs)
+            
 
         f_manager = file_manager.FileManeger(self.dfs, self.dirs, taget_dir)
 
@@ -41,7 +44,7 @@ class Main:
 
         # 単語を練習に使うものと使わないものに分けます
         except_words, remain_words =\
-            org_except.main(taget_df, personal_exception, w_e)
+            org_except.main(taget_df, personal_exception, w_e,taget_dir)
 
         start_time = time.time()
         # 練習が始まります
@@ -75,6 +78,10 @@ if __name__ == '__main__':
             ,'linear_algebra.csv'
             ,'type.csv'
           ]
+    gold_dirs =\
+        [
+            'part_1.csv'
+        ]
 
-    main = Main(dfs, dirs)
+    main = Main(dfs, dirs, gold_dirs)
     main.main()

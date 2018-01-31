@@ -9,7 +9,7 @@ class Select:
 
     def select(self, dfs):
         digit_dfs = len(list(map(int, str(len(dfs)))))
-        dfs_num_for_print = str(len(dfs)).ljust(digit_dfs+2,'_')
+        dfs_num_for_print = str(len(dfs)).ljust(digit_dfs+2,'-')
         print(' ' + Fore.GREEN + dfs_num_for_print + 'instructs')
         for df_num in range(len(dfs)):
             dfs_num_for_print = str(df_num).ljust(digit_dfs+2, '-')
@@ -22,7 +22,7 @@ class Select:
         self.parrot_no_df(df,dfs)
         if df == len(dfs):
             self.instructions()
-            df = self.select()
+            df = self.select(dfs)
         return df
 
     def parrot_no_df(self, q ,dfs):

@@ -30,7 +30,7 @@ class UIModule:
         print(Fore.BLUE + str(w_e[num]))
         args = ['espeak', '-s', '125', '-v', 'en+f5']
         args.append(str(w_e[num]))
-        res = subprocess.check_call(args)
+        #res = subprocess.check_call(args)
         except_words, remain_words =\
             self.add_del(except_words, remain_words, num)
         if random_key!=None:
@@ -41,8 +41,7 @@ class UIModule:
         print(Fore.BLUE + str(w_e[num]))
         args = ['espeak', '-s', '125', '-v', 'en+f5']
         args.append(str(w_e[num]))
-        res = subprocess.check_call(args)
-        trash = str(input("練習して："))
+        #res = subprocess.check_call(args)
         for i in range(100):
             trash = str(input("練習して："))
             if(trash == w_e[num]):

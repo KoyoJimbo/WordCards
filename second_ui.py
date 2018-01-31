@@ -19,7 +19,7 @@ class SecondUI(ui_modules.UIModule):
         return except_words, remain_words
 
     def branch(self,ans,per_ans,num,previous_num,
-               except_words,remain_words,w_e,w_j,random_key,personal_exception):
+               except_words,remain_words,w_e,w_j,random_key,personal_exception,your_weak):
         done = None
         if ans == "e" and per_ans == 0 and previous_num != None:
             if previous_num not in personal_exception:
@@ -27,8 +27,8 @@ class SecondUI(ui_modules.UIModule):
             except_words, remain_words =\
                 super().add_del(except_words, remain_words, num)
         elif ans == "wp":
-            if previous_num not in your_weak:
-                your_weak.append(previous_num)
+            if num not in your_weak:
+                your_weak.append(num)
         elif ans == "s":
             except_words, remain_words =\
                 super().add_del(except_words, remain_words, num)

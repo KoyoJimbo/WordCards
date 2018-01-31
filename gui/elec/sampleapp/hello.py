@@ -16,7 +16,7 @@ rnum = random.randint(0,len(w_e)-1)
 
 @app.route("/")
 def hello():
-    message= self.w_j[self.rnum]
+    message= w_j[rnum]
     #return name
     return render_template('first.html',template_folder='templates',
                            title='flask test',message=message) #変更
