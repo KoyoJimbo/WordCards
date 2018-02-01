@@ -19,6 +19,10 @@ class Ui(ui_modules.UIModule):
                                        your_weak,random_key, weak_key)
         for time in range(1024):
             if len(remain_words) == 0:
+                if personal_exception == None:
+                    personal_exception = []
+                if your_weak == None:
+                    your_weak = []
                 return personal_exception,your_weak
             num = super().rand_or_not(time,w_e,previous_num,
                                       remain_words,random_key)

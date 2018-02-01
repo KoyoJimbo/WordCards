@@ -3,8 +3,9 @@ import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 import subprocess
+import super_ui_modules
 
-class UIModule:
+class UIModule(super_ui_modules.SuperUIModule):
     def __init__(self):
         pass
 
@@ -41,59 +42,14 @@ class UIModule:
             res = subprocess.check_call(args)
 
     def wrong_LP(self, w_e, num, ans):
-        self.LP(w_e, num, ans)
+        super().LP(w_e, num, ans)
         print(Fore.BLUE + str(w_e[num]))
         for i in range(100):
             trash = str(input("練習して："))
             if(trash == w_e[num]):
                 break
             print(Fore.BLUE + str(w_e[num]))
-            self.LP(w_e, num, trash)
-
-    def LP(self, w_e, num, ans):
-        if len(ans) > 0:
-            # forward
-            forward = ''
-            j = 0
-            while j < min(len(ans),len(w_e[num])) and ans[j] == w_e[num][j]:
-                forward += ans[j]
-                j += 1
-            # back
-            back = ''
-            ans_tail = len(ans) - 1
-            w_e_tail = len(w_e[num]) - 1
-            # while 前方の条件２つはw_e[-1]となりw_eの後方を検索しないためです。
-            while ans_tail >= 0 and  w_e_tail >= 0 and\
-                ans[ans_tail] == w_e[num][w_e_tail]:
-                back += ans[ans_tail]
-                ans_tail -= 1
-                w_e_tail -= 1
-            # middle
-            next_middle = ''
-            if 1 < len(ans)-len(forward)-len(back):
-                middle = ''
-                for i in range(len(ans)-len(forward)-len(back)):
-                    middle += ans[i+len(forward)]
-                middleP2 = [middle[i:i+2] for i in range(len(middle)-1)]
-                w_eP2 = [w_e[num][i:i+2] for i in range(len(w_e[num])-1)]
-                for i in range(len(middleP2)):
-                    if middleP2[i] in w_eP2:
-                        next_middle += Fore.GREEN + middleP2[i][0]
-                    else:
-                        if i != 0 and (middleP2[i-1] in w_eP2):
-                            next_middle += Fore.GREEN + middleP2[i][0]
-                        else:
-                            next_middle += Fore.RED +  middleP2[i][0]
-                next_middle += middleP2[-1][1]
-            elif 1 == len(ans)-len(forward)-len(back):
-                next_middle += ( Fore.RED + str(ans[len(forward)]))
-            else:
-                next_middle += Fore.RED
-                for i in range(len(w_e[num])-len(forward)-len(back)):
-                    next_middle += '_'
-
-            print(str(forward) + Fore.RED +\
-                str(next_middle) + Fore.RESET + str(back[::-1]))
+            super().LP(w_e, num, trash)
 
 # debug for wrong_LP()
 if __name__ == '__main__':
