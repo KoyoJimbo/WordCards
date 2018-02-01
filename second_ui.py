@@ -22,15 +22,15 @@ class SecondUI(ui_modules.UIModule):
     def branch(self,ans,per_ans,num,previous_num,
                except_words,remain_words,w_e,w_j,random_key,personal_exception,your_weak):
         done = None
-        if ans == "e" and per_ans == 0 and previous_num != None:
+        if ans == ";e" and per_ans == 0 and previous_num != None:
             if previous_num not in personal_exception:
                 personal_exception.append(previous_num)
             except_words, remain_words =\
                 super().add_del(except_words, remain_words, num)
-        elif ans == "wp":
+        elif ans == ";wp":
             if num not in your_weak:
                 your_weak.append(num)
-        elif ans == "s":
+        elif ans == ";s":
             except_words, remain_words =\
                 super().add_del(except_words, remain_words, num)
         elif ans == w_e[num]:
@@ -38,7 +38,7 @@ class SecondUI(ui_modules.UIModule):
                           num ,w_e,random_key)
             done = "done"
         else:
-            super().wrong(w_e, num)
+            super().wrong_LP(w_e, num, ans)
             done = "done"
         return done
 
