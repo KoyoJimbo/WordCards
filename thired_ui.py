@@ -29,14 +29,14 @@ class ThiredUI(ui_modules.UIModule):
     def show_q(self,num,random_key,w_j, q):
         if random_key == None:print(str(num) + ": " + str(w_j[num]))
         else:print(" " + "  " + str(w_j[num]))
-        ans = str(input("答えて："))
+        #ans = str(input("答えて："))
+        ans = str(input(""))
         #return ans
         q.put(ans)
 
     def show_mode(self,random_key,weak_key):
-        pass
         #if random_key != None:print(Fore.GREEN + "random mode")
-        #if weak_key   != None:print(Fore.GREEN + "weak mode")
+        if weak_key   != None:print(Fore.GREEN + "weak mode")
 
     def rmer(self,ans,per_ans,personal_exception,your_weak):
         ans = ans[1:]

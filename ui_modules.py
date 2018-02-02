@@ -41,15 +41,18 @@ class UIModule(super_ui_modules.SuperUIModule):
             args.append(str(w_e[previous_num]))
             res = subprocess.check_call(args)
 
-    def wrong_LP(self, w_e, num, ans):
+    def wrong_LP(self, w_e, w_j, num, ans):
         super().LP(w_e, num, ans)
         print(Fore.BLUE + str(w_e[num]))
         for i in range(100):
-            trash = str(input("練習して："))
+            #trash = str(input("練習して："))
+            trash = str(input(""))
             if(trash == w_e[num]):
                 break
-            print(Fore.BLUE + str(w_e[num]))
+            print("\n")
+            print(str(w_j[num]))
             super().LP(w_e, num, trash)
+            print(Fore.BLUE + str(w_e[num]))
 
 # debug for wrong_LP()
 if __name__ == '__main__':
@@ -67,6 +70,6 @@ if __name__ == '__main__':
             ,'linear_algebra.csv'
             ,'type.csv'
           ]
-    ans = 'commplimentary'
+    ans = '1com4444pli333mentary1'
     uim = UIModule()
     uim.wrong_LP(dfs,1,ans)

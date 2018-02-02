@@ -21,7 +21,6 @@ class Main:
         if taget_dir == 1:
             self.dfs = self.gold_dfs
         taget_df = select.select(self.dfs)
-            
 
         f_manager = file_manager.FileManeger(self.dfs, self.dirs, taget_dir)
 
@@ -46,8 +45,8 @@ class Main:
         except_words, remain_words =\
             org_except.main(taget_df, personal_exception, w_e,taget_dir)
 
-        start_time = time.time()
         # 練習が始まります
+        start_time = time.time()
         personal_exception, your_weak =\
             module.ui(except_words, remain_words, w_j, w_e, personal_exception,your_weak)
         took_time = int(time.time() - start_time)
@@ -81,7 +80,9 @@ if __name__ == '__main__':
     gold_dfs =\
         [
             'part_1.csv',
-            'part_2.csv'
+            'part_2.csv',
+            'branch.csv',
+            'part_2_supplement.csv'
         ]
 
     main = Main(dfs, dirs, gold_dfs)

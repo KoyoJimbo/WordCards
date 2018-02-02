@@ -29,7 +29,7 @@ class Ui(ui_modules.UIModule):
             if num not in remain_words or num == previous_num:
                 continue
             self.thr_ui.print_remain_num(num,random_key,ans,remain_words,w_e)
-            #self.thr_ui.show_mode(random_key,weak_key)
+            self.thr_ui.show_mode(random_key,weak_key)
            ## 並列処理
             q = queue.Queue()
             th1 = threading.Thread(target = self.thr_ui.show_q, args=(num,random_key,w_j,q))

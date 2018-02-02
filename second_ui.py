@@ -38,7 +38,7 @@ class SecondUI(ui_modules.UIModule):
                           num ,w_e,random_key)
             done = "done"
         else:
-            super().wrong_LP(w_e, num, ans)
+            super().wrong_LP(w_e, w_j, num, ans)
             done = "done"
         return done
 
