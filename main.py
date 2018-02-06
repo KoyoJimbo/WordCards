@@ -6,10 +6,11 @@ import time
 import os
 
 class Main:
-    def __init__(self, dfs,dirs,gold_dfs):
+    def __init__(self, dfs,dirs,gold_dfs,days_dfs):
         self.dfs = dfs
         self.dirs = dirs
         self.gold_dfs = gold_dfs
+        self.days_dfs = days_dfs
 
     def main(self):
         module = ui.Ui()
@@ -20,6 +21,8 @@ class Main:
         taget_dir = select.select(self.dirs)
         if taget_dir == 1:
             self.dfs = self.gold_dfs
+        if taget_dir == 2:
+            self.dfs = self.days_dfs
         taget_df = select.select(self.dfs)
 
         f_manager = file_manager.FileManeger(self.dfs, self.dirs, taget_dir)
@@ -61,7 +64,8 @@ class Main:
 if __name__ == '__main__':
     dirs = [
             'University',
-            'GoldPhrase'
+            'GoldPhrase',
+            'days'
            ]
     dfs = [
              'law.csv'
@@ -82,8 +86,14 @@ if __name__ == '__main__':
             'part_1.csv',
             'part_2.csv',
             'branch.csv',
-            'part_2_supplement.csv'
+            'part_2_supplement.csv',
+            'original.csv'
         ]
 
-    main = Main(dfs, dirs, gold_dfs)
+    days_dfs =\
+        [ 
+            'month.csv',
+            'week.csv',
+        ]
+    main = Main(dfs, dirs, gold_dfs,days_dfs)
     main.main()

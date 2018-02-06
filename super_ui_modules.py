@@ -26,7 +26,7 @@ class SuperUIModule:
         back = ''
         ans_tail = len(ans) - 1
         w_e_tail = len(w_e[num]) - 1
-        # while 前方の条件２つはw_e[-1]となりw_eの後方を検索しないためです。
+        # while 前方の条件２つはw_e[num][-1]となりw_eの後方を検索しないためです。
         while ans_tail >= 0 and  w_e_tail >= 0 and\
             ans[ans_tail] == w_e[num][w_e_tail]:
             back += ans[ans_tail]
